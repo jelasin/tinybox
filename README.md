@@ -37,6 +37,6 @@ $ tinybox$
 - ping
 - whoami
 - clear
-- >
-- >>
-- |
+- `>`
+- `>>`
+- `|`
