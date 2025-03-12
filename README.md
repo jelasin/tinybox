@@ -13,30 +13,25 @@ $ tinybox$
 ```
 ## Supported commands
 
-- ls            --ok
-    ==> ls -lA
-- cd            --ok
-- pwd           --ok
-- mkdir
-- rm            --ok
-    ==> rm -rf
-- mv
-- cp            --ok
-    ==> cp -rL
-- cat
-- touch
-- echo
-- exit          --ok
-- help          --ok
-- quit          --ok
-- exec
-    to run ELF executables. such as: `tinybox$ exec ./a.out arg1 arg2`
-- wget
-    ==> wget http://example.com/file.txt ./file.txt
-- ifconfig
-- ping
-- whoami
-- clear
+- `ls`
+- `cd`
+- `pwd`
+- `mkdir`
+- `rm`
+- `mv`
+- `cp`
+- `cat`
+- `touch`
+- `echo`
+- `exit`
+- `help`
+- `quit`
+- `exec`
+- `wget`
+- `ifconfig`
+- `ping`
+- `whoami`
+- `clear`
 - `>`
 - `>>`
 - `|`
