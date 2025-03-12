@@ -1,4 +1,5 @@
 # Makefile for tinybox
+
 export CC := gcc
 
 debug := false
