@@ -17,6 +17,9 @@
 #include <fcntl.h>
 #include <sys/types.h>
 
+#include <pwd.h>
+#include <grp.h>
+
 #define S_ISSOCK(mode) __S_ISTYPE((mode), __S_IFSOCK)
 
 /*
@@ -34,5 +37,23 @@ extern enum file_type get_file_type(const char *path, bool flag);
 * @return: 0 if success, -1 if fail
 **/
 extern int get_file_attribute(const char *path, file_attribute_t* pf_attr_t);
+
+extern int f_get_file_type(const char *path, file_attribute_t* pf_attr_t);
+
+extern int f_get_file_name(const char *path, file_attribute_t* pf_attr_t);
+
+extern int f_get_file_permisson(const struct stat *st, file_attribute_t* pf_attr_t);
+
+extern int f_get_file_owner(file_attribute_t* pf_attr_t);
+
+extern int f_get_file_group(file_attribute_t* pf_attr_t);
+
+extern int f_get_file_size(const struct stat *st, file_attribute_t* pf_attr_t);
+
+extern int f_get_file_mtime(const struct stat *st, file_attribute_t* pf_attr_t);
+
+extern int f_get_file_link_content(const char *path, file_attribute_t* pf_attr_t);
+
+extern int f_get_file_nlink(const struct stat *st, file_attribute_t* pf_attr_t);
 
 #endif /* __UTILS_H__ */

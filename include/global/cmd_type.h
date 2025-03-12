@@ -35,7 +35,9 @@ typedef struct command {
 #define SZ_FILE_NAME 64
 #define SZ_FILE_PERMISSION 10
 #define SZ_FILE_TIME 32                                                      
-#define SZ_FILE_LINK_CONTENT 64
+#define SZ_FILE_LINK_CONTENT 256
+#define SZ_FILE_SIZE 32
+#define SZ_FILE_NLINK 32
 
 typedef struct file_attribute
 {                                                                          
@@ -47,6 +49,8 @@ typedef struct file_attribute
     char f_attr_permission[SZ_FILE_PERMISSION];     // 权限
     char f_attr_name[SZ_FILE_NAME];                 // 文件名
     char f_attr_link_content[SZ_FILE_LINK_CONTENT]; // 链接指向的内容
+    char f_attr_size[SZ_FILE_SIZE];                 // 文件大小
+    char f_attr_nlink[SZ_FILE_NLINK];               // 链接数
 } file_attribute_t;
 
 #endif /* __CMD_TYPE_H__ */

@@ -67,6 +67,10 @@
         "cerrno": "c",
         "cmd_rm.h": "c",
         "utils.h": "c",
-        "acct.h": "c"
+        "acct.h": "c",
+        "pwd.h": "c",
+        "grp.h": "c",
+        "cstring": "c",
+        "set": "c"
     }
 }

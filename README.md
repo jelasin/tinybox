@@ -1,6 +1,8 @@
 # TinyBox
 
-a tiny shell to run commands on remote machines.
+A tiny shell to run commands on remote machines.
+
+You can study this project to learn how to create a simple shell in Linux/Unix C.
 
 ## Usage
 
@@ -35,3 +37,8 @@ $ tinybox$
 - `>`
 - `>>`
 - `|`
+
+## Design Patterns
+
+
+![TinyBox Design Pattern](pic/tinybox.png)
