@@ -30,6 +30,12 @@ typedef struct cp_file_info {
 **/
 extern int cp_handle(cmd_t *pcmd_t);
 /*
+* execute cp command
+* @param pcmd_t: command struct
+* @return: 0 if success, -1 if fail
+**/
+extern int cp_execute(cmd_t *pcmd_t);
+/*
 * parse src and dest path, and get file info
 * @param pcmd_t: command struct
 * @param pfile_info: file info struct

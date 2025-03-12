@@ -15,6 +15,12 @@
 /*
 * pwd_handle - handle the pwd command
 */
-extern int pwd_handle();
+extern int pwd_handle(cmd_t *pcmd_t);
+/*
+* pwd_execute - execute the pwd command
+* @cmd - the command to execute
+* @return - 0 if success, -1 if failure
+**/
+extern int pwd_execute(cmd_t *pcmd_t);
 
 #endif /* __CMD_PWD_H__ */

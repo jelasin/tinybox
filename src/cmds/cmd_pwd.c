@@ -1,6 +1,12 @@
 #include "cmd_pwd.h"
 
-int pwd_handle()
+int pwd_handle(cmd_t *pcmd_t)
+{
+    pwd_execute(pcmd_t);
+    return 0;
+}
+
+int pwd_execute(cmd_t *pcmd_t)
 {
     char cwd[PATH_MAX];
     if (getcwd(cwd, PATH_MAX) == NULL)

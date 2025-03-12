@@ -26,6 +26,15 @@ int cd_handle(cmd_t *pcmd_t)
         return -1;
     }
 
+    if (0 != cd_execute(pcmd_t))
+    {
+        ERROR("[cd_handle] Failed to execute cd command");
+        return -1;
+    }
+    return 0;
+}
+int cd_execute(cmd_t *pcmd_t)
+{
     char cur_dir[PATH_MAX];
     if (getcwd(cur_dir, PATH_MAX) == NULL)
     {

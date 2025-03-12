@@ -20,6 +20,12 @@
 **/
 extern int ls_handle(cmd_t *pcmd_t);
 /*
+* ls executer function
+* @param pcmd_t: command struct pointer
+* @return: 0 on success, -1 on failure
+**/
+extern int ls_execute(cmd_t *pcmd_t);
+/*
 * print all files in a directory
 * @param path: directory path
 * @return: 0 on success, -1 on failure

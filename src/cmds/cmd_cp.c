@@ -19,45 +19,9 @@ int cp_handle(cmd_t *pcmd_t)
         return -1;
     }
     
-    cp_file_info_t file_info;
-    int ret = parse_cp_args(pcmd_t, &file_info);
-    if (0 != ret)
+    if (0 != cp_execute(pcmd_t))
     {
-        if (ret == -2)
-        {
-            WARN("[cp_handle] have a same file or dir name with %s, please check", pcmd_t->cmd_arg_list[1]);
-            return -1;
-        }
-        else
-        {
-            ERROR("[cp_handle] parse cp args failed");
-            return -1;
-        }
-
-
-    }
-#if defined(DEBUG)
-    INFO("[cp_handle] src_path: %s, dest_path: %s, src_ftype: %s", \
-        file_info.src_path, file_info.dest_path, \
-        file_info.src_ftype == FT_FILE ? "file" : (file_info.src_ftype == FT_DIR ? "dir" : "unknown"));
-#endif
-    if (file_info.src_ftype == FT_FILE)
-    {
-        ret = cp_file(file_info.src_path, file_info.dest_path);
-    }
-    else if (file_info.src_ftype == FT_DIR)
-    {
-        ret = cp_dir(file_info.src_path, file_info.dest_path);
-    }
-    else
-    {
-        ERROR("[cp_handle] not supported file type of %s", file_info.src_path);
-        return -1;
-    }
-
-    if (0 != ret)
-    {
-        ERROR("[cp_handle] cp %s to %s failed, %s", file_info.src_path, file_info.dest_path, strerror(errno));
+        ERROR("[cp_handle] cp execute failed");
         return -1;
     }
 
@@ -229,6 +193,51 @@ int cp_dir(char *src_path, char *dest_path)
             }
         }
         closedir(pdir_src);
+    }
+
+    return 0;
+}
+
+int cp_execute(cmd_t *pcmd_t)
+{
+    cp_file_info_t file_info;
+    int ret = parse_cp_args(pcmd_t, &file_info);
+    if (0 != ret)
+    {
+        if (ret == -2)
+        {
+            WARN("[cp_handle] have a same file or dir name with %s, please check", pcmd_t->cmd_arg_list[1]);
+            return -1;
+        }
+        else
+        {
+            ERROR("[cp_handle] parse cp args failed");
+            return -1;
+        }
+    }
+#if defined(DEBUG)
+    INFO("[cp_handle] src_path: %s, dest_path: %s, src_ftype: %s", \
+        file_info.src_path, file_info.dest_path, \
+        file_info.src_ftype == FT_FILE ? "file" : (file_info.src_ftype == FT_DIR ? "dir" : "unknown"));
+#endif
+    if (file_info.src_ftype == FT_FILE)
+    {
+        ret = cp_file(file_info.src_path, file_info.dest_path);
+    }
+    else if (file_info.src_ftype == FT_DIR)
+    {
+        ret = cp_dir(file_info.src_path, file_info.dest_path);
+    }
+    else
+    {
+        ERROR("[cp_handle] not supported file type of %s", file_info.src_path);
+        return -1;
+    }
+
+    if (0 != ret)
+    {
+        ERROR("[cp_handle] cp %s to %s failed, %s", file_info.src_path, file_info.dest_path, strerror(errno));
+        return -1;
     }
 
     return 0;

@@ -83,7 +83,7 @@ int dispatch_cmd(cmd_t *pcmd_t)
     }
     else if (0 == strcmp(pcmd_t->cmd_name, "pwd"))
     {
-        return pwd_handle();
+        return pwd_handle(NULL);
     }
     else if (0 == strcmp(pcmd_t->cmd_name, "cd"))
     {

@@ -19,6 +19,12 @@
 **/
 extern int rm_handle(cmd_t *pcmd_t);
 /*
+* rm_executer - execute rm command
+* @cmd: command structure
+* return: 0 on success, -1 on failure
+**/
+extern int rm_execute(cmd_t *pcmd_t);
+/*
 * rm_file - remove file
 * @path: file path
 * return: 0 on success, -1 on failure
