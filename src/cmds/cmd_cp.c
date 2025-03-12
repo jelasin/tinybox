@@ -144,9 +144,14 @@ int cp_dir(char *src_path, char *dest_path)
     int ret = 0;
     enum file_type ftype = get_file_type(src_path, true);
 
-    if (ftype != FT_DIR || ftype != FT_FILE)
+    if (ftype != FT_DIR && ftype != FT_FILE)
     {
-        ERROR("[cp_dir] get file type of %s failed", src_path);
+        ERROR("[cp_dir] #1 get file type of %s failed", src_path);
+#if defined(DEBUG)
+        ERROR("[cp_dir] ftype: %d -> %s", \
+            ftype,\
+            ftype == FT_FILE ? "file" : (ftype == FT_DIR ? "dir" : "other"));
+#endif
         return -1;
     }
 
@@ -204,7 +209,12 @@ int cp_dir(char *src_path, char *dest_path)
             enum file_type ftype = get_file_type(src_file_path, true);
             if (ftype != FT_DIR && ftype != FT_FILE)
             {
-                ERROR("[cp_dir] get file type of %s failed", src_file_path);
+                ERROR("[cp_dir] #2 get file type of %s failed", src_file_path);
+#if defined(DEBUG)
+                ERROR("[cp_dir] ftype: %d -> %s", \
+                    ftype,\
+                    ftype == FT_FILE ? "file" : (ftype == FT_DIR ? "dir" : "other"));
+#endif
                 ret = -1;
                 break;
             }

@@ -66,6 +66,7 @@
         "cmd_cd.h": "c",
         "cerrno": "c",
         "cmd_rm.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "acct.h": "c"
     }
 }

@@ -1,6 +1,9 @@
 #ifndef __CMD_TYPE_H__
 #define __CMD_TYPE_H__
 
+#include <sys/stat.h>
+#include <sys/types.h>
+
 #define SZ_NAME 8           // 命令名称长度
 #define SZ_ARG 128          // 命令参数长度
 #define SZ_COUNT 10         // 命令参数个数

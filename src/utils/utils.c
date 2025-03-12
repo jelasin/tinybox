@@ -67,7 +67,7 @@ int get_file_attribute(const char *path, file_attribute_t* pf_attr_t)
     if (path == NULL)
     {
         ERROR("[get_file_attribute] invalid args");
-        return NULL;
+        return -1;
     }
 
     enum file_type type = get_file_type(path, false);
@@ -111,6 +111,5 @@ int get_file_attribute(const char *path, file_attribute_t* pf_attr_t)
         ERROR("[get_file_attribute] unknown file type: %s", path);
         return -1;
     }
-
     return 0;
 }

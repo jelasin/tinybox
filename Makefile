@@ -3,9 +3,9 @@ export CC := gcc
 
 debug := false
 ifeq ($(debug), true)
-export CFLAGS := -I$(PWD)/include -DDEBUG -g -Wall
+export CFLAGS := -I$(PWD)/include/cmds -I$(PWD)/include/utils -I$(PWD)/include/global -DDEBUG -g -Wall
 else
-export CFLAGS := -I$(PWD)/include -O2 -Wall
+export CFLAGS := -I$(PWD)/include/cmds -I$(PWD)/include/utils -I$(PWD)/include/global  -O2 -Wall
 endif
 
 static := false

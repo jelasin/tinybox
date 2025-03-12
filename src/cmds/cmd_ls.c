@@ -17,7 +17,7 @@ int ls_handle(cmd_t *pcmd_t)
             ERROR("[ls_handle] Failed to get current working directory, failed %s", strerror(errno));
             return -1;
         }
-        if (0 != ls_print_all(cwd))
+        if (0 != ls_print_dir(cwd))
         {
             ERROR("[ls_handle] Failed to list directory %s", cwd);
             return -1;
@@ -57,11 +57,11 @@ int ls_handle(cmd_t *pcmd_t)
 
 int ls_print_file(const char* path)
 {
-    
+    return 0;
 }
 
 int ls_print_dir(const char* path)
 {
-
+    return 0;
 }
 

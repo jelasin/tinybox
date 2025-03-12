@@ -20,7 +20,7 @@ int cd_handle(cmd_t *pcmd_t)
         return -1;
     }
     
-    if (get_file_type(pcmd_t->cmd_arg_list[0], false) != FT_DIR)
+    if (0 != strcmp(pcmd_t->cmd_arg_list[0], "-") && 0 != strcmp(pcmd_t->cmd_arg_list[0], "~") && get_file_type(pcmd_t->cmd_arg_list[0], false) != FT_DIR)
     {
         ERROR("[cd_handle] Not a directory: %s\n", pcmd_t->cmd_arg_list[0]);
         return -1;
