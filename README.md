@@ -13,6 +13,7 @@ $ tinyboxd -P 0.0.0.0:8000
 $ tinybox REMOTE_IP:8000
 $ tinybox$
 ```
+
 ## Supported commands
 
 - `ls`
@@ -37,8 +38,4 @@ $ tinybox$
 - `>`
 - `>>`
 - `|`
-
-## Design Patterns
-
-
-![TinyBox Design Pattern](pic/tinybox.png)
+  
